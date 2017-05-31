@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+body, html{
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto','sans-serif';
+}
+
+
+
+.welcome{
+  color: black;
+  text-align: center;
+  
+}
+
+.mars-header{
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+.tap-enter{
+  margin-top: 300px;
+}
+
+div[class*='circle']{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 50%;
+  background-color: #d1adad;
+	transform: translatex(-50%) translatey(-50%);
+	animation: pulse 2s ease infinite;
+}
+@for $i from 1 through 5 {
+  .circle-#{$i} { 
+		width: $i * 5vh; 
+		height: $i * 5vh;
+		z-index: -$i;
+		animation-delay: $i * .2s;
+	}
+}
+@keyframes pulse {
+	0% {opacity: 0}
+	50%{opacity: .5}
+	100%{opacity: 0}
+}
+
+
+
+

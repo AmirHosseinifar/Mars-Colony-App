@@ -1,0 +1,19 @@
+<div class="report">
+  <header>
+    <h1>Report Encounter</h1>
+    <p>Safety on Mars is your responsibility.</p>
+  </header>
+  
+  <form action="" class="alien-report">
+    <fieldset>
+      <label>Type of Alien Sighted: <select>
+        <option *ngFor="let alien of aliens" value="">
+          {{alien.type}}
+        </option>
+      </select></label>
+      <textarea name="textarea" rows="10" cols="30">details</textarea>
+    </fieldset>
+    <button type="submit">Submit</button> 
+  </form>
+</div>
+   

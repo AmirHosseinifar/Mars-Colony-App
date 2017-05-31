@@ -1,0 +1,17 @@
+<form>
+    <div class="form-row required">        
+        <label for="name">name</label>
+        <input id="name" required="required" type="text"/>
+    </div>
+    <div class="form-row required">
+        <label for="age">Age</label>
+        <input id="age" required="required" type="number"/>
+    </div>
+    <div class="form-row required">
+      <select>
+        <option *ngFor="let job of jobs" value="{{jobs.name}}">
+          {{job.name}}
+      </select>
+    </div>
+  
+</form>
