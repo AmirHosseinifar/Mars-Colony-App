@@ -1,28 +1,27 @@
-
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-
+import {Http, Headers, RequestOptions, Response } from '@angular/http'
 import { Observable } from 'rxjs/Observable';
+
 import 'rxjs/add/operator/map';
 
-import { Aliens } from '../models/aliens';
-
+import { Report } from '../models/report';
 
 @Injectable()
 export class ReportService {
 
-  private ALIENS_URL = 'https://red-wdp-api.herokuapp.com/api/mars/aliens';
+  private REPORT_URL = 'https://red-wdp-api.herokuapp.com/api/mars/encounters'
 
-  constructor(private http: Http) { }
 
-  getData() {
-    return this.http.get(this.ALIENS_URL)
-                    .map(this.extractAliens);
+  constructor(private http: Http) {}
+
+  postData(encounter: Report) {
+    const headers = new Headers({ 'Content-Type':'application/json' });
+    const options = new RequestOptions({ headers});
+    return this.http.post(this.REPORT_URL,{encounter}, options)
+                    .map(this.extractData);
   }
-
-  extractAliens(res: Response) {
-    const aliens = res.json();
-    return aliens;
+  extractData(res: Response){
+    const report = res.json();
+    return report;
   }
-
 }

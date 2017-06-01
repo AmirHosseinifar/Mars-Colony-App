@@ -1,28 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { Aliens } from '../../models/aliens';
+import { AliensService } from'../../services/aliens.service';
+
+import { Report } from '../../models/report';
 import { ReportService } from '../../services/report.service';
+
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss'],
-  providers: [ReportService]
+  providers: [AliensService, ReportService]
 })
 export class ReportComponent implements OnInit {
 
-private ALIENS_URL = 
-  'https://red-wdp-api.herokuapp.com/api/mars/aliens'
-
   aliens: Aliens[] = [];
+  report: Report;
 
-  constructor(private reportService: ReportService) { }
+  constructor(private aliensService: AliensService,private reportService: ReportService) { }
 
   ngOnInit() {
-        this.reportService
-        .getData()
-        .subscribe((data) => {
-          this.aliens = data.aliens;
+        this.aliensService.getData()
+            .subscribe((aliens) => {
+              this.aliens = aliens;
         });
   }
 
-}
+// postReport() {
+  
+//   this.reportService
+//       .postData(report)
+//       .subscribe((newReport));
+
+//   }
+ }

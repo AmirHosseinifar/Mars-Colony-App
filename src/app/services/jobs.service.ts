@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import { Job } from '../models/job';
 
 @Injectable()
-export class RegisterService {
+export class JobsService {
 
   private JOB_URL = 'https://red-wdp-api.herokuapp.com/api/mars/jobs';
 
@@ -19,8 +19,8 @@ export class RegisterService {
   }
 
   extractJobs(res: Response) {
-    const encounters = res.json();
-    return encounters;
+    const jobs = res.json();
+    return jobs;
   }
 
 }

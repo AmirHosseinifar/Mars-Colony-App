@@ -1,4 +1,6 @@
+<div class="page">
 <form>
+  <fieldset>
     <div class="form-row required">        
         <label for="name">name</label>
         <input id="name" required="required" type="text"/>
@@ -11,7 +13,10 @@
       <select>
         <option *ngFor="let job of jobs" value="{{jobs.name}}">
           {{job.name}}
+        </option>
       </select>
+      </fieldset>
     </div>
   
 </form>
+</div>
