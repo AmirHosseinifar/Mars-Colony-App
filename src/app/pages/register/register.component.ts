@@ -22,7 +22,7 @@ import {
 export class RegisterComponent implements OnInit {
   jobs: Job[] = [];
   colonist: Colonist;
-
+  registerForm: FormGroup;
   constructor(private jobService: JobsService,private colonistService: ColonistService) { }
 
   ngOnInit() {
@@ -30,6 +30,15 @@ export class RegisterComponent implements OnInit {
         .subscribe((data)=> {
           this.jobs = data.jobs;
         });
+    this.registerForm = new FormGroup({
+      name: new FormControl('',[
+        Validators.required, 
+        Validators.maxLength(100), 
+        Validators.minLength(3)
+        ]),
+      age: new FormControl('',[Validators.required]),
+      job_id: new FormControl('', [])  
+    })
   }
   postColonist(){
     const colonist = new Colonist('Mack', '35', '4');
