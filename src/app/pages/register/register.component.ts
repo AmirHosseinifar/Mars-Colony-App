@@ -5,6 +5,7 @@ import { JobsService } from '../../services/jobs.service';
 import { Colonist } from '../../models/colonist';
 import { ColonistService } from '../../services/colonist.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

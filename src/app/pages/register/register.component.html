@@ -1,22 +1,10 @@
-<div class="page">
-<form>
-  <fieldset>
-    <div class="form-row required">        
-        <label for="name">name</label>
-        <input id="name" required="required" type="text"/>
-    </div>
-    <div class="form-row required">
-        <label for="age">Age</label>
-        <input id="age" required="required" type="number"/>
-    </div>
-    <div class="form-row required">
+  <form class="register-form">
+    <fieldset>
+      <input type="text" placeholder="Enter your name" />
+      <input type="number" placeholder="Enter your age" />
       <select>
-        <option *ngFor="let job of jobs" value="{{jobs.name}}">
-          {{job.name}}
-        </option>
+        <option value="1">Select an occupation</option>
       </select>
-      </fieldset>
-    </div>
-  
-</form>
-</div>
+    </fieldset>
+    <button type="submit">Register</button>
+  </form>
