@@ -1,5 +1,5 @@
 export interface Encounter {
-  id: 3,
+  id: string,
   date: string;
   colonist_id: string;
   atype: string;

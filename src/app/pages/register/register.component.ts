@@ -4,7 +4,7 @@ import { Job } from '../../models/job';
 import { JobsService } from '../../services/jobs.service';
 import { Colonist } from '../../models/colonist';
 import { ColonistService } from '../../services/colonist.service';
-
+import { Router } from '@angular/router';
 import {
    FormGroup,
    FormControl, 
@@ -25,6 +25,7 @@ import {
         return control.value > age ? { 'you\'re too old to go to Mars': age } :null;
     };
   };
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -39,8 +40,11 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   NO_JOB_SELECTED = 'no job';
 
-  constructor(private jobService: JobsService,
-  private colonistService: ColonistService) { }
+  constructor(
+    private jobService: JobsService,
+    private colonistService: ColonistService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
 
@@ -84,9 +88,11 @@ export class RegisterComponent implements OnInit {
       const job_id = this.registerForm.get('job_id').value;
 
       const colonist = new Colonist(name, age, job_id);
-      console.log('WIN!', colonist);
-
+      this.colonistService.postData(colonist).subscribe(newColonist => {
+        window.localStorage.setItem('colonist_id', newColonist.colonist.id);
+        this.router.navigate(['encounters']);
+      });
 
     }
-  }
-}
+    }
+    } 

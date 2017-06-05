@@ -20,7 +20,7 @@ export class ReportService {
     return this.http.post(this.REPORT_URL,{encounter}, options)
                     .map(this.extractData);
   }
-  extractData(res: Response){
+  extractData(res: Response) {
     const report = res.json();
     return report;
   }
