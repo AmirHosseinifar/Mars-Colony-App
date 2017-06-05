@@ -1,4 +1,5 @@
   <div class="page">
+  <div class="form">
   <form class="register-form" [formGroup]="registerForm" name="registerForm" (ngSubmit)="register($event)">
     <fieldset>
       <input type="text" placeholder="Enter your name" required formControlName="name"/>
@@ -11,4 +12,5 @@
     <button (click)="postColonist(this.colonist)" type="submit" [disabled]="registerForm.invalid">Register</button>
     <!--<p>{{ JSON.parse(registerForm) }}</p>-->
   </form>
+  </div>
   </div>
