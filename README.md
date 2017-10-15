@@ -1,5 +1,5 @@
 # MarsColonyApp
-
+<img width="1440" alt="screen shot 2017-10-15 at 15 43 11" src="https://user-images.githubusercontent.com/23506481/31590100-ad6cc700-b1bf-11e7-9204-d383c1ded02d.png">
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.6.
 
 ## Development server
